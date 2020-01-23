@@ -3,10 +3,7 @@ layout: post
 published: true
 title: La mejor jam que puedo tener
 ---
----
-layout: post
-title: First post!
----
+
 ## Trabajando en equipo en una sesion de jam.
 La mejor herramienta que cualquiera puede tener, en cualquier medio, es la comunicacion.
 
