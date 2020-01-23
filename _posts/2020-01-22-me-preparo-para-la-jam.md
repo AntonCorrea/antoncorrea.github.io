@@ -3,6 +3,12 @@ layout: post
 published: false
 title: Me preparo para la jam
 ---
-## Una nueva jam, un nuevo proyecto.
+## Trabajando en equipo en una sesion de jam.
+No se puede elegir el equipo ni las habilidades de estos, pero podemos siempre aportar algo, por que siempre todo aporte bien encaminado es bienvenido.No hay esbirros ni maestros, todos debemos aportar el mismo esfuerzo.
 
-Quisiera aportar un set de items que encuentro muy utiles a la hora de desarrollar en una gameJam
+ 
+
+
+
+
+
