@@ -3,6 +3,10 @@ layout: post
 published: false
 title: La mejor jam que puedo tener
 ---
+---
+layout: post
+title: First post!
+---
 ## Trabajando en equipo en una sesion de jam.
 La mejor herramienta que cualquiera puede tener, en cualquier medio, es la comunicacion.
 
@@ -22,15 +26,3 @@ Con eso en mente aqui hay unas herramientas que son faciles de aprender ,requeri
 |[https://mathewsachin.github.io/Captura/](https://mathewsachin.github.io/Captura/)| Captura de video de la pantalla| Liviano y rapido|
 |[http://www.mapeditor.org/](http://www.mapeditor.org/)| Editor de escenarios en 2D| Herramienta ideal para niveles de plataformas e isometricos, basado en tiles|
 |[https://cooltext.com/](https://cooltext.com/)| Generador de logos| Util para logos,menus e interfaces|
-
-
-
-
-
-
- 
-
-
-
-
-
