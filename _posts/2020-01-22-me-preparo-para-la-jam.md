@@ -23,3 +23,5 @@ Con eso en mente aqui hay unas herramientas que son faciles de aprender ,requeri
 |[https://mathewsachin.github.io/Captura/](https://mathewsachin.github.io/Captura/)| Captura de video de la pantalla| Liviano y rapido|
 |[http://www.mapeditor.org/](http://www.mapeditor.org/)| Editor de escenarios en 2D| Herramienta ideal para niveles de plataformas e isometricos, basado en tiles|
 |[https://cooltext.com/](https://cooltext.com/)| Generador de logos| Util para logos,menus e interfaces|
+|[https://ecrettmusic.com/](https://ecrettmusic.com/)| Generador de musica| Sencillo generador, con seleccion de instrumentos y ambiete para juegos, online y requiere crear cuenta|
+|[https://boscaceoil.net/](https://boscaceoil.net/)| Generador de musica| Generador instrumental de musica, ofrece cliente offline|
