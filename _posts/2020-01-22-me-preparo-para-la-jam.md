@@ -13,7 +13,7 @@ Con eso en mente, debemos tener en claro que podemos aportar, que necesidad pode
 
 Trabajar en un equipo **multidiciplinario** implica amoldarse a las necesidades del equipo, buscar la oprtunidad de mejorar el proyecto con tu aporte, y siempre tener la mejor onda con los demas. 
 
-Con eso en mente aqui hay unas herramientas que son faciles de aprender ,requerien recursos minimos del sistema y pueden resultar en una productividad mayor para tu equipo en una jam:
+Con eso en mente aqui hay unas herramientas ,sin orden alguno, que son faciles de aprender ,pueden ser aprendidas y aplicadas en un tiempo minimo, requerien recursos minimos del sistema y pueden resultar en una productividad mayor para tu equipo en una jam:
 
 | | | |
 |---|---|---|
