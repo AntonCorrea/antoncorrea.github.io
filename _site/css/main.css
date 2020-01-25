@@ -448,6 +448,9 @@ footer .theme-by {
 }
 .intro-header .page-heading {
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-clip: content-box;
+  border-radius: 10px;
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
