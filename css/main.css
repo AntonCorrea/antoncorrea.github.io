@@ -8,6 +8,7 @@ layout: null
 
 body {
   font-family: 'Lora', 'Times New Roman', serif;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 18px;
   color: #404040;
   position: relative;
@@ -460,10 +461,10 @@ footer .theme-by {
   transition: opacity 1s linear;
 }
 .intro-header .page-heading {
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  background-clip: content-box;
-  border-radius: 10px;
+    text-align: center;
+    background-clip: content-box;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 100%100%0%0%;
 }
 .intro-header.big-img .page-heading,
 .intro-header.big-img .post-heading {
