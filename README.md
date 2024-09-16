@@ -1,2 +1,0 @@
-# antoncorrea.github.io
-Blog
