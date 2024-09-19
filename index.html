@@ -9,16 +9,15 @@
     <style>
       /* Estilos para ajustar el logo de carga */
       #unity-logo {
-        width: auto; /* Ajusta el ancho autom�ticamente */
-        height: auto; /* Ajusta la altura autom�ticamente */
-        background-image: url('path/to/your/logo.png'); /* Cambia la ruta a tu imagen */
-        background-size: contain; /* Ajusta el tama�o de la imagen para que encaje en el contenedor */
-        background-repeat: no-repeat; /* Evita que la imagen se repita */
-        background-position: center; /* Centra la imagen dentro del contenedor */
-        display: flex; /* Permite centrar la imagen dentro del contenedor */
-        justify-content: center; /* Centra la imagen horizontalmente */
-        align-items: center; /* Centra la imagen verticalmente */
-        /* Ajustar tama�o del contenedor seg�n sea necesario */
+        width: auto;
+        height: auto;
+        background-image: url('path/to/your/logo.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       /* Ocultar el footer */
@@ -78,6 +77,7 @@
         showBanner: unityShowBanner,
       };
 
+      // Detectar si el dispositivo es iOS o Android
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -85,7 +85,20 @@
         document.getElementsByTagName('head')[0].appendChild(meta);
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
+
+        // Detectar orientaci�n y solicitar landscape si es necesario
+        function checkOrientation() {
+          if (window.innerHeight > window.innerWidth) {
+            // Mostrar advertencia si est� en portrait
+            unityShowBanner("Por favor, gira tu dispositivo para jugar en modo landscape.", "warning");
+          }
+        }
+
+        window.addEventListener("orientationchange", checkOrientation);
+        window.addEventListener("resize", checkOrientation);
+        checkOrientation();  // Comprobar en el inicio
       } else {
+        // Dispositivo de escritorio
         canvas.style.width = "1024px";
         canvas.style.height = "768px";
       }
@@ -108,7 +121,6 @@
       };
 
       document.body.appendChild(script);
-
     </script>
   </body>
 </html>
