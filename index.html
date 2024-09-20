@@ -7,7 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
-      /* Estilos para ajustar el logo de carga */
+      /* Style for adjusting the loading logo */
       #unity-logo {
         width: auto;
         height: auto;
@@ -20,15 +20,37 @@
         align-items: center;
       }
 
-      /* Ocultar el footer */
+      /* Hide the footer */
       #unity-footer {
         display: none;
+      }
+
+      /* Ensure the container takes 100% of the width */
+      html, body, #unity-container {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        overflow: hidden;
+      }
+
+      /* Make sure the canvas takes 100% of the width and scales proportionally */
+      #unity-canvas {
+        width: 100%;
+        height: auto; /* Adjust height proportionally */
+        max-height: 100%; /* Prevents overflow */
+        display: block; /* Ensure no additional space */
+      }
+
+      /* Remove margins and paddings for full screen coverage */
+      body {
+        margin: 0;
+        padding: 0;
       }
     </style>
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1024 height=768 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" style="width: 100%; height: auto;" tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -36,14 +58,13 @@
         </div>
       </div>
       <div id="unity-warning"></div>
-      <div id="unity-fullscreen-button" title="Fullscreen"></div>
+      <!-- Fullscreen button removed -->
     </div>
     <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
 
       function unityShowBanner(msg, type) {
@@ -77,7 +98,7 @@
         showBanner: unityShowBanner,
       };
 
-      // Detectar si el dispositivo es iOS o Android
+      // Detect if the device is iOS or Android
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         var meta = document.createElement('meta');
         meta.name = 'viewport';
@@ -86,21 +107,22 @@
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
 
-        // Detectar orientaci�n y solicitar landscape si es necesario
+        // Detect orientation and request landscape mode if necessary
         function checkOrientation() {
           if (window.innerHeight > window.innerWidth) {
-            // Mostrar advertencia si est� en portrait
+            // Show warning if in portrait mode
             unityShowBanner("Please rotate your device to play in landscape mode.", "warning");
           }
         }
 
         window.addEventListener("orientationchange", checkOrientation);
         window.addEventListener("resize", checkOrientation);
-        checkOrientation();  // Comprobar en el inicio
+        checkOrientation();  // Check orientation on load
       } else {
-        // Dispositivo de escritorio
-        canvas.style.width = "1024px";
-        canvas.style.height = "768px";
+        // Desktop device: set canvas to 100% width, auto height
+        canvas.style.width = "100%";
+        canvas.style.height = "auto";
+        container.style.height = "auto";
       }
 
       loadingBar.style.display = "block";
@@ -112,9 +134,6 @@
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
-            unityInstance.SetFullscreen(1);
-          };
         }).catch((message) => {
           alert(message);
         });
