@@ -17,22 +17,22 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="description" content="Cottom - Slow Down, Cozy Up, and color" />
-    <title>Cottom - Slow Down, Cozy Up, and color</title>
+    <title>Cotton Mindful Moment</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <style>
         /* Style for adjusting the loading logo */
-        /* #unity-logo {
+        #unity-logo {
           width: auto;
           height: auto;
-          background-image: url('path/to/your/logo.png');
+          background-image: url("/Assets/Resources/UI/Logo_Splash.png");
           background-size: contain;
           background-repeat: no-repeat;
           background-position: center;
           display: flex;
           justify-content: center;
           align-items: center;
-        } */
+        }
 
         /* Hide the footer */
         #unity-footer {
@@ -113,11 +113,11 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Builds.loader.js";
+      var loaderUrl = buildUrl + "/Colors.loader.js";
       var config = {
-        dataUrl: buildUrl + "/Builds.data",
-        frameworkUrl: buildUrl + "/Builds.framework.js",
-        codeUrl: buildUrl + "/Builds.wasm",
+        dataUrl: buildUrl + "/Colors.data",
+        frameworkUrl: buildUrl + "/Colors.framework.js",
+        codeUrl: buildUrl + "/Colors.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "DefaultCompany",
         productName: "Cotton Colors",
@@ -134,23 +134,11 @@
         container.className = "unity-mobile";
         canvas.className = "unity-mobile";
 
-        //// Detect orientation and request landscape mode if necessary
-        //function checkOrientation() {
-        //  if (window.innerHeight > window.innerWidth) {
-        //    // Show warning if in portrait mode
-        //    unityShowBanner("Please rotate your device to play in landscape mode.", "warning");
-        //  }
-        //}
-
-        //window.addEventListener("orientationchange", checkOrientation);
-        //window.addEventListener("resize", checkOrientation);
-        //checkOrientation();  // Check orientation on load
-
-          window.addEventListener("resize", function () {
-              // Este evento permitirá ajustar el canvas dinámicamente si cambias la orientación
-              canvas.style.width = "100%";
-              canvas.style.height = "100%";
-          });
+        window.addEventListener("resize", function () {
+            // Este evento permitirá ajustar el canvas dinámicamente si cambias la orientación
+            canvas.style.width = "100%";
+            canvas.style.height = "100%";
+        });
 
       } else {
         // Desktop device: set canvas to 100% width, auto height
@@ -167,6 +155,7 @@
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
         }).catch((message) => {
           alert(message);
@@ -174,6 +163,33 @@
       };
 
       document.body.appendChild(script);
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics-compat.js"></script>
+    <!-- script module -->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAq2w0-q7MBRb6ne9DNGSrS3Rt1QTgmecE",
+        authDomain: "cottoncolorsfb.firebaseapp.com",
+        projectId: "cottoncolorsfb",
+        storageBucket: "cottoncolorsfb.appspot.com",
+        messagingSenderId: "378182104277",
+        appId: "1:378182104277:web:7b2b0c7172647f4bf81e5c",
+        measurementId: "G-Y9126V1DDX"
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics(app);
+      console.log("Firebase Analytics initialized:", analytics);
     </script>
 </body>
 </html>
