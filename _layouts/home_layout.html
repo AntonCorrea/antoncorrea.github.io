@@ -1,7 +1,7 @@
 {% include header.html %}
 
     {% include home-hero.html %}
-
+    
     <main id="portfolio">
       <div class="container">
         <div class="row">
@@ -13,9 +13,10 @@
             {% if site.section_subtitle != '' %}
             <p class="section-subtitle text-center">{{ site.section_subtitle }}</p>
             {% endif %}
-
+            
+            {%comment%}
             <div class="break"></div>
-
+            
             {% for post in paginator.posts %}
               <div class="wow fadeIn">
               {% if post.position == "left" %}
@@ -29,10 +30,11 @@
             {% endfor %}
 
             {% include pagination.html %}
+            {%endcomment%}
 
           </div>
         </div>
       </div>
     </main>
-
+    
 {% include footer.html %}

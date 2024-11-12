@@ -8,20 +8,28 @@
 
         <div class="hero-content">
 
+          {%comment%}
           {% if site.title != '' %}
           <h1 class="text-center">{{site.title}}</h1>
           {% endif %}
+          {%endcomment%}
+          <h1 class="text-center">Hi! I'm Antonio!</h1>
 
           {% if site.description != '' or site.enable_contact == true %}
-          <p class="text-center">
+          <p class="text-center" >
+            I'm a passionate video game enthusiast. Since discovering video games, I've been dedicated to learning the art of game development and have had the pleasure of working on a variety of projects. You're welcome to check out my portfolio!
+            <br> I'm always happy to talk!
+            
+            {%comment%}
             {% if site.description != '' %}
             {{site.description}}
             {% endif %}
-
+            
             {% if site.enable_contact == true %}
             {% include contact.html %}
             {% include contact-modal.html %}
             {% endif %}
+            {%endcomment%}
           </p>
           {% endif %}
 
@@ -36,6 +44,9 @@
             {% if site.medium_username != '' %}
               <a href="https://{{ site.medium_username }}"><button class="btn btn-default btn-lg"><i class="fa fa-medium fa-lg"></i>Medium</button></a>
             {% endif %}
+            <a href="https://drive.google.com/file/d/1NpzeHnCLVOQ7JsFoC5QvFs5ZP0syLmMx/view?usp=sharing" target="_blank"><button class="btn btn-default btn-lg"><i class="fa-solid fa-file-pdf"></i>Resume</button></a>
+            <a href="portfolio"><button class="btn btn-default btn-lg"><i class="fa-solid fa-briefcase"></i>Portfolio</button></a>
+            <a href="https://www.linkedin.com/in/antoniorolandocorrea" target="_blank"><button class="btn btn-default btn-lg"><i class="fa-brands fa-linkedin"></i>LinkedIn</button></a>
 
           </div>
 
@@ -43,9 +54,12 @@
 
       </div>
 
+      {%comment%}
       <a class="section-jump text-center" href="#portfolio">
         <i class="fa fa-angle-down fa-3x"></i>
       </a>
+      {%endcomment%}
+
 
     </div>
 

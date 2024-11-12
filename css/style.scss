@@ -21,6 +21,7 @@ $secondary: #FF7B7B;
 
 %opensans { font-family: 'Open Sans', sans-serif; }
 %merriweather { font-family: 'Merriweather', serif; }
+%montserrat {font-family:'Montserrat',serif;}
 
 /*--------------------------------------------------------------
 	1.0 Defaults
@@ -39,7 +40,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  @extend %merriweather;
+  @extend %montserrat;
   font-weight: 700;
 }
 
@@ -62,6 +63,7 @@ a {
 
 img {
   width: 100%;
+  height: auto;
 }
 
 button.btn, input.btn {
@@ -255,14 +257,14 @@ button.btn, input.btn {
   @include bp-small {
     margin-bottom: 2em;
   }
-  img.img-responsive {
+/*  img.img-responsive {
     @include bp-xsmall {
       display: none;
     }
     @include bp-small {
       display: none;
     }
-  }
+  }*/
   .content {
     margin-top: 5em;
     margin-left: 5em;
