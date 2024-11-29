@@ -10,4 +10,5 @@ project_link: 'https://rescuethemes.com'
 button_text: 'Visit Rescue Themes'
 button_icon: 'wordpress'
 lead_text: 'Designed and developed all WordPress themes'
+hidden: true
 ---

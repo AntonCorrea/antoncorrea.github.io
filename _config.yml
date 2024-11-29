@@ -32,7 +32,7 @@ plugins:
 # Site configuration for the Jekyll 3 Pagination Gem
 # The values here represent the defaults if nothing is set
 paginate: 10
-paginate_path: "pages/page:num/"
+paginate_path: "portfolio/page:num/"
 
 
 

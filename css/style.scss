@@ -20,8 +20,9 @@ $primary: #0a0a0a;
 $secondary: #FF7B7B;
 
 %opensans { font-family: 'Open Sans', sans-serif; }
-%merriweather { font-family: 'Merriweather', serif; }
+//%merriweather { font-family: 'Merriweather', serif; }
 %montserrat {font-family:'Montserrat',serif;}
+%montserratBold {font-family:'Montserrat',sans-serif;font-weight: 700;}
 
 /*--------------------------------------------------------------
 	1.0 Defaults
@@ -39,9 +40,14 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1{
+  //@extend %montserrat;
+  @extend %montserratBold;
+}
+
+h2, h3, h4, h5, h6 {
   @extend %montserrat;
-  font-weight: 700;
+  font-size: 23px;
 }
 
 article {
@@ -50,7 +56,11 @@ article {
 
 p {
   line-height: 1.8;
-  font-size: 1.3em;
+  font-size: 16px;
+}
+
+li{
+  font-size: 16px;
 }
 
 a {
@@ -108,6 +118,11 @@ button.btn, input.btn {
   &:hover {
     top: 3px;
   }
+}
+
+.square-list {
+  list-style-type: square;
+  font-size: 15px;
 }
 
 /*--------------------------------------------------------------
@@ -285,10 +300,17 @@ button.btn, input.btn {
       }
     }
     .excerpt {
+      @extend %montserrat;
       width: 80%;
+      font-size: 15px;
       @include bp-xsmall {
         width: 100%;
       }
+      //display: -webkit-box;
+      //-webkit-line-clamp: 6; 
+      //-webkit-box-orient: vertical;
+      //overflow: hidden;
+      //text-overflow: ellipsis;
     }
     button{
       font-size: 16px;
