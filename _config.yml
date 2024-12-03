@@ -39,7 +39,7 @@ paginate_path: "portfolio/page:num/"
 ### Phantom settings
 footer_text: 'Made with Jekyll - Theme: Phatom by Jami Gibbs'
 admin_name: 'Antonio Correa'
-google_analytics: "UA-9999999-99" # Update with your own tracking ID
+google_analytics: G-KRYH7YD5Y8 # Update with your own tracking ID
 enable_contact: true
 
 #### Phantom Navigation menu
