@@ -3,6 +3,10 @@
 
   <!-- Meta -->
   <meta charset="utf-8">
+  <meta name="description" content="Portfolio of Antonio Correa, Game Developer">
+  <meta name="author" content="Antonio Correa">
+  <meta name="keywords" content="antonio correa, game development, game developer, Unity, Godot, portfolio, AR, VR, Argentina, Salta">
+  <title>Antonio Correa - Game Developer</title>
 
   <title>{% if page.title %}{{ page.title }} - {{ site.title }}{% elsif post.title %}{{ post.title }} - {{ site.title }}{% else %}{{ site.title }} - {{ site.description }}{% endif %}</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -46,7 +50,9 @@
 
 <div class="main container" id="top">
 
+
   {% if site.enable_nav == true %}
+  {% if page.title != "Home" %}
   <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container-fluid">
           <div class="navbar-header">
@@ -70,3 +76,5 @@
       </div>
   </nav>
   {% endif %}
+  {% endif %}
+

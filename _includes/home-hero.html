@@ -17,19 +17,20 @@
 
           {% if site.description != '' or site.enable_contact == true %}
           <p class="text-center" >
-            I'm a passionate video game enthusiast. Since discovering video games, I've been dedicated to learning the art of game development and have had the pleasure of working on a variety of projects. You're welcome to check out my portfolio!
+            A passionate video game enthusiast. Since discovering video games, I've been dedicated to learning the art of game development and have had the pleasure of working on a variety of projects. You're welcome to check out my portfolio!
             <br> I'm always happy to talk!
             
             {%comment%}
             {% if site.description != '' %}
             {{site.description}}
             {% endif %}
+            {%endcomment%}
             
             {% if site.enable_contact == true %}
             {% include contact.html %}
             {% include contact-modal.html %}
             {% endif %}
-            {%endcomment%}
+            
           </p>
           {% endif %}
 
