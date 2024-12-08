@@ -5,7 +5,7 @@ title: 'Metegolers'
 date: 2000-01-01 00:00:05
 categories: development
 tags: Unity Multiplayer SinglePlayer Collaborator Android iOS 
-featured_image: '/img/posts/Metegolers/metegolersScreenshoot.png'
+featured_image: '/img/posts/Metegolers/metegolersScreenshot.png'
 project_link: metegolers
 button_icon: 'futbol'
 button_text: 'Visit Project'
@@ -26,7 +26,7 @@ Metegolers uses [Mirror](https://mirror-networking.com/) for client-server inter
 <div style="text-align: center;">
   <a href="https://play.google.com/store/apps/details?id=com.siltium.metegolers&hl=en" class="project-link">
     <button class="btn btn-default btn-lg">
-      <i class="fa-brands fa-google-play"></i> Try it on the PlayStore!
+      <i class="fa-brands fa-google-play fa-beat"></i> Try it on the PlayStore!
     </button>
   </a>
 </div>
