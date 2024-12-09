@@ -1,0 +1,63 @@
+{% include header.html %}
+
+    <main id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            {%comment%}
+            {% if site.section_title != '' %}
+            <h2 class="section-title text-center">{{ site.section_title }}</h2>
+            {% endif %}
+            {% if site.section_subtitle != '' %}
+            <p class="section-subtitle text-center">{{ site.section_subtitle }}</p>
+            {% endif %}           
+            <div class="break"></div>
+            {%endcomment%}
+            
+            <form onsubmit="checkPassword(event, '{{ site.postspassword }}', 'hidden-content')"
+            style="display: flex; flex-direction: column; align-items: center; gap: 1rem; margin: 5rem auto 2rem; max-width: 400px;">
+              <input type="password" id="password-input-{{ post.slug }}" required>
+              <button type="submit">Submit</button>
+            </form>
+            <div id="hidden-content" class="protected-content" style="display: none">
+
+            <h1 class="text-center">Portfolio</h1>
+        
+            {% for post in site.posts %}
+              <div class="wow fadeIn">
+              {% if post.position == "left" and post.hiddenByPassword == true %}
+                {% include content-left.html %}
+              {% endif %}
+
+              {%comment%}
+              {% if post.position == "right" %}
+                {% include content-right.html %}
+              {% endif %}
+              {%endcomment%}
+
+              </div>
+            {% endfor %}
+
+            {% include pagination.html %}
+            
+
+          </div>
+        </div>
+      </div>
+    </main>
+{% include footer.html %}
+
+<script>
+  function checkPassword(event, correctPassword, contentId) {
+    event.preventDefault();
+    const inputPassword = event.target.querySelector('input[type="password"]').value;
+
+    if (inputPassword === correctPassword) {
+      document.getElementById(contentId).style.display = 'block';
+      event.target.style.display = 'none'; // Hide the form
+    } else {
+      alert('Incorrect password. Please try again.');
+    }
+  }
+</script>

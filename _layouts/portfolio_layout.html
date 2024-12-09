@@ -15,7 +15,8 @@
             <div class="break"></div>
             {%endcomment%}
 
-            <h1 class="text-center">Portfolio</h1>
+            <h1 class="text-center">Portfoli<a href="{{ site.url }}/hiddenportfolio/" target="_blank" style="color: inherit; text-decoration: none;">o</a></h1>
+            
 
          
             {% for post in paginator.posts %}
@@ -24,9 +25,12 @@
                 {% include content-left.html %}
               {% endif %}
 
+              {%comment%}
               {% if post.position == "right" %}
                 {% include content-right.html %}
               {% endif %}
+              {%endcomment%}
+              
               </div>
             {% endfor %}
 

@@ -46,3 +46,6 @@ enable_contact: false
 enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
+
+#### Password to hide posts
+postspassword: 4221
