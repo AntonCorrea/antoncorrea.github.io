@@ -339,9 +339,17 @@ button.btn, input.btn {
 
 // vertically center content of post rows
 .post-row {
-    align-items: center;
-    display: flex;
+
+  align-items: center;
+  display: flex;
 }
+@media screen and (max-width: 768px) {
+  .post-row {
+  display: grid;
+  place-items: center;  
+  }
+}
+
 
 /*--------------------------------------------------------------
 	4.0 Footer
