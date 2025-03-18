@@ -20,7 +20,7 @@
 
          
             {% for post in paginator.posts %}
-              <div class="wow fadeInLeft">
+              <div data-aos="zoom-out-up">
               {% if post.position == "left" %}
                 {% include content-left.html %}
               {% endif %}
