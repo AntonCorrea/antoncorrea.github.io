@@ -1,6 +1,6 @@
 <div class="content">
-  <h2 class="title">{{ post.title }}</h2>
-
+  <h2 class="title">{{ post.title }} ({{post.date_dev}})</h2>
+  
   <p class="excerpt">{{ post.lead_text | newline_to_br }}</p>
 
   {% if post.project_link != empty %}
