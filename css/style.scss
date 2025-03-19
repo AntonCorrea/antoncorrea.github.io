@@ -23,6 +23,7 @@ $secondary: #FF7B7B;
 //%merriweather { font-family: 'Merriweather', serif; }
 %montserrat {font-family:'Montserrat',serif;}
 %montserratBold {font-family:'Montserrat',sans-serif;font-weight: 700;}
+%oswald {font-family: 'Oswald', sans-serif;  font-optical-sizing: auto; font-weight: 600;font-style: normal;}
 
 /*--------------------------------------------------------------
 	1.0 Defaults
@@ -42,7 +43,8 @@ body {
 
 h1{
   //@extend %montserrat;
-  @extend %montserratBold;
+  //@extend %montserratBold;
+  @extend %oswald;
   font-size: 48px;
 }
 
