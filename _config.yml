@@ -43,7 +43,7 @@ google_analytics: G-KRYH7YD5Y8 # Update with your own tracking ID
 enable_contact: false
 
 #### Phantom Navigation menu
-enable_nav: true
+enable_nav: false
 nav_item:
   - { url: '/', text: 'Home' }
 

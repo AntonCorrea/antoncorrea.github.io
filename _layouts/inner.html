@@ -1,10 +1,24 @@
 {% include header.html %}
 
   <article>
+    {% assign url_parts = page.url | split: "/" %}
+    <div class="breadcrumb">
+      <a href="{{ site.baseurl }}/">Home</a> /
+      {% assign path = "" %}
+      {% for part in url_parts offset:1 %}
+        {% assign path = path | append: "/" | append: part %}
+        {% if forloop.last %}
+          <span>{{ part | replace: "-", " " | capitalize }}</span>
+        {% else %}
+          <a href="{{ site.baseurl }}{{ path }}">{{ part | replace: "-", " " | capitalize }}</a> /
+        {% endif %}
+      {% endfor %}
+    </div>
     <div class="container">
       <div class="row">
+        
         <div class="col-md-8 col-md-offset-2">
-
+          
           {{ content }}
 
         </div>

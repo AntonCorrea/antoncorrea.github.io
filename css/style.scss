@@ -35,6 +35,12 @@ $secondary: #FF7B7B;
   }
 }
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background-color: #e9edf0;
   @extend %opensans;
@@ -54,7 +60,7 @@ h2, h3, h4, h5, h6 {
 }
 
 article {
-  margin: 5em 0;
+  margin: 1em;
 }
 
 p {
@@ -106,6 +112,9 @@ button.btn, input.btn {
   background-color: white;
   border-left: solid 1px #cedfea;
   border-right: solid 1px #cedfea;
+  min-height: calc(100vh - 2em); // Adjust based on footer height
+  display: flex;
+  flex-direction: column;
   &.container {
     padding: 0;
   }
@@ -227,7 +236,7 @@ button.btn, input.btn {
 	3.0 Posts
 --------------------------------------------------------------*/
 #portfolio .container {
-  margin-top: 10em;
+  margin-top: 1em;
   @include bp-xsmall {
     margin-top: 2em;
   }
@@ -362,6 +371,7 @@ button.btn, input.btn {
   margin-top: 2em;
   border-top: 1px solid #efefef;
   padding: 1em 0;
+  margin-top: auto;
   p {
     font-size: 12px;
     font-weight: 600;
