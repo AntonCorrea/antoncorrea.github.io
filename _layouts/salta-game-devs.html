@@ -4,43 +4,39 @@
 
   <!-- HERO -->
   <section class="hero" id="hero">
-    <div class="hero__glow hero__glow--left"></div>
-    <div class="hero__glow hero__glow--right"></div>
+    <img src="{{ "/img/backgroundTint.png" | prepend: site.baseurl }}" alt="" class="hero__bg">
     <div class="hero__inner">
-      <img src="{{ "/img/front.png" | prepend: site.baseurl }}" alt="Antonio Correa - Game Developer" class="hero__logo">
-      <div class="hero__content">
-      <h1 class="hero__title">
-        <span class="hero__line">Game <span class="accent">Development</span></span>
-        <span class="hero__line">Art <span class="accent">Production</span></span>
-        <span class="hero__line">Outsourcing</span>
-      </h1>
-      <div class="hero__badges">
-        <span class="hero__badge"><span class="hero__badge-dot"></span>Desktop</span>
-        <span class="hero__badge"><span class="hero__badge-dot"></span>Mobile</span>
-        <span class="hero__badge"><span class="hero__badge-dot"></span>Web</span>
-        <span class="hero__badge"><span class="hero__badge-dot"></span>VR/AR</span>
-
+      <div class="hero__layout">
+        <div class="hero__logo-wrap">
+          <span class="hero__logo-glow"></span>
+          <img src="{{ "/img/logoWhiteNoBackground.png" | prepend: site.baseurl }}" alt="Salta Game Devs" class="hero__logo">
+        </div>
+        <div class="hero__content">
+          <h1 class="hero__title">
+            <span class="hero__line">Game <span class="accent">Development</span></span>
+            <span class="hero__line">Art <span class="accent">Production</span></span>
+            <span class="hero__line">Outsourcing</span>
+          </h1>
+        </div>
       </div>
-      </div>
+    </div>
+    <div class="hero__badges">
+      <span class="hero__badge"><span class="hero__badge-dot"></span>Desktop</span>
+      <span class="hero__badge"><span class="hero__badge-dot"></span>Mobile</span>
+      <span class="hero__badge"><span class="hero__badge-dot"></span>Web</span>
+      <span class="hero__badge"><span class="hero__badge-dot"></span>VR/AR</span>
     </div>
   </section>
 
   <!-- ABOUT US -->
   <section class="about" id="about">
     <div class="container">
+      <span class="overline">Emerging Virtual Culture</span>
       <div class="about__grid">
         <div class="about__text">
-          <span class="overline">Emerging Virtual Culture</span>
           <h2 class="section-title">A community crafting games, <span class="accent">from code to art</span></h2>
           <p>We are a collaborative community of video game development and design in the province of Salta, Argentina — bringing together creative, technical and curious people to learn, create and share experiences around the world of video games.</p>
           <p>We aim to become a leading community in Latin America, transforming game development into a tool of innovation, education and cultural growth while positioning Salta as a creative and collaborative hub of global impact. Like the projects we ship, we grow on shared passion, reliable collaboration and a love for the craft.</p>
-          <div class="about__chips">
-            <span class="chip">Unity</span>
-            <span class="chip">Godot</span>
-            <span class="chip">VR / AR</span>
-            <span class="chip">Art Direction</span>
-            <span class="chip">Remote Team</span>
-          </div>
         </div>
         <div class="about__image">
           <img src="{{ "/img/back.png" | prepend: site.baseurl }}" alt="Salta Game Devs community">
