@@ -18,6 +18,14 @@
 
 $primary: #0a0a0a;
 $secondary: #FF7B7B;
+$accent: #c90d2a;
+$accent-hover: #ff5266;
+$bg-dark: #0a0a0a;
+$bg-alt: #141414;
+$bg-card: #1a1a1a;
+$border: #2a2a2a;
+$text-sub: #a3a3a3;
+$text-body: #d4d4d4;
 
 %opensans { font-family: 'Open Sans', sans-serif; }
 //%merriweather { font-family: 'Merriweather', serif; }
@@ -42,7 +50,8 @@ html, body {
 }
 
 body {
-  background-color: #e9edf0;
+  background-color: $bg-dark;
+  color: $text-body;
   @extend %opensans;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,11 +61,13 @@ h1{
   //@extend %montserratBold;
   @extend %oswald;
   font-size: 48px;
+  color: #ffffff;
 }
 
 h2, h3, h4, h5, h6 {
   @extend %montserrat;
   font-size: 23px;
+  color: #ffffff;
 }
 
 article {
@@ -66,16 +77,19 @@ article {
 p {
   line-height: 1.8;
   font-size: 16px;
+  color: $text-body;
 }
 
 li{
   font-size: 16px;
+  color: $text-body;
 }
 
 a {
+  color: $accent;
   @include transition(color .2s ease-in-out);
   &:hover {
-    color: #FF5B33;
+    color: $accent-hover;
     text-decoration: none;
   }
 }
@@ -88,16 +102,18 @@ img {
 button.btn, input.btn {
   padding: 12px 35px;
   margin: 2em 0.5em;
-  border: solid 1px #d5e0e7;
+  background-color: $bg-card;
+  border: solid 1px $border;
   border-radius: 4px;
-  color: #2E4453;
+  color: #ffffff;
   font-weight: 600;
   &:hover, &.btn-default:hover {
-    background-color: white;
-    border: solid 1px #b0c5d2;
-    -moz-box-shadow: 0 1px 0 #b0c5d2;
-    -webkit-box-shadow: 0 1px 0 #b0c5d2;
-    box-shadow: 0 1px 0 #b0c5d2;
+    background-color: $accent;
+    border: solid 1px $accent;
+    color: #ffffff;
+    -moz-box-shadow: 0 1px 0 $accent;
+    -webkit-box-shadow: 0 1px 0 $accent;
+    box-shadow: 0 1px 0 $accent;
   }
   i {
     padding-right: 0.5em;
@@ -109,9 +125,9 @@ button.btn, input.btn {
 }
 
 .main {
-  background-color: white;
-  border-left: solid 1px #cedfea;
-  border-right: solid 1px #cedfea;
+  background-color: $bg-dark;
+  border-left: solid 1px $border;
+  border-right: solid 1px $border;
   min-height: calc(100vh - 2em); // Adjust based on footer height
   display: flex;
   flex-direction: column;
@@ -172,9 +188,22 @@ button.btn, input.btn {
   }
   .hero-buttons {
     margin: 0 auto;
-    display: table;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
     i {
       padding-right: 0.5em;
+    }
+    .hero-buttons__row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 1em;
+      .btn {
+        margin: 0;
+      }
     }
   }
 }
@@ -258,7 +287,7 @@ button.btn, input.btn {
     top: 1.35em;
     width: 3em;
     height: 3px;
-    background-color: #ECEFF1;
+    background-color: $accent;
     left: 50%;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
@@ -269,6 +298,7 @@ button.btn, input.btn {
 .section-subtitle {
   width: 40%;
   margin: 0 auto;
+  color: $text-sub;
   @include bp-xsmall {
     width: 100%;
   }
@@ -317,6 +347,7 @@ button.btn, input.btn {
       @extend %montserrat;
       width: 80%;
       font-size: 15px;
+      color: $text-body;
       @include bp-xsmall {
         width: 100%;
       }
@@ -335,16 +366,18 @@ button.btn, input.btn {
     .tags, .categories {
       margin: 2em 0;
       span {
-        color: #9eb1bd;
-        background-color: #ECEFF1;
+        color: $text-sub;
+        background-color: $bg-card;
+        border: 1px solid $border;
         padding: 0.5em 1.5em;
         display: inline-block;
         margin-bottom: 0.5em;
       }
     }
     .categories span {
-      color: #b9b1ad;
-      background-color: #EFEBE9;
+      color: $text-sub;
+      background-color: $bg-card;
+      border: 1px solid $border;
     }
   }
 }
@@ -369,13 +402,13 @@ button.btn, input.btn {
 .site-footer {
   font-size: 14px;
   margin-top: 2em;
-  border-top: 1px solid #efefef;
+  border-top: 1px solid $border;
   padding: 1em 0;
   margin-top: auto;
   p {
     font-size: 12px;
     font-weight: 600;
-    color: #9eb1bd;
+    color: $text-sub;
     margin: 0;
     padding: 10px 0;
     @include bp-xsmall {
@@ -395,11 +428,11 @@ button.btn, input.btn {
 --------------------------------------------------------------*/
 pre,
 code {
-  color: #262626;
+  color: $text-body;
   font-size: 14px;
-  border: 1px solid #E5E5E5;
+  border: 1px solid $border;
   border-radius: 3px;
-  background-color: #FBFBFB;  }
+  background-color: $bg-card;  }
 
 code {
   padding: 1px 5px; }
@@ -416,75 +449,189 @@ pre {
 	6.0 Syntax highlighting styles
 --------------------------------------------------------------*/
 .highlight {
-  background: #fff; }
+  background: $bg-alt; }
   .highlighter-rouge .highlight {
-    background: #eef; }
-    .highlight .hll { background-color: #ffffcc }
-    .highlight .c { color: #8f5902; font-style: italic } /* Comment */
-    .highlight .err { color: #a40000 } /* Error */
-    .highlight .g { color: #000000 } /* Generic */
-    .highlight .k { color: #204a87; font-weight: bold } /* Keyword */
-    .highlight .l { color: #000000 } /* Literal */
-    .highlight .n { color: #000000 } /* Name */
-    .highlight .o { color: #ce5c00; font-weight: bold } /* Operator */
-    .highlight .x { color: #000000 } /* Other */
-    .highlight .p { color: #000000; font-weight: bold } /* Punctuation */
-    .highlight .cm { color: #8f5902; font-style: italic } /* Comment.Multiline */
-    .highlight .cp { color: #8f5902; font-style: italic } /* Comment.Preproc */
-    .highlight .c1 { color: #8f5902; font-style: italic } /* Comment.Single */
-    .highlight .cs { color: #8f5902; font-style: italic } /* Comment.Special */
-    .highlight .gd { color: #a40000 } /* Generic.Deleted */
-    .highlight .ge { color: #000000; font-style: italic } /* Generic.Emph */
-    .highlight .gr { color: #ef2929 } /* Generic.Error */
-    .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-    .highlight .gi { color: #00A000 } /* Generic.Inserted */
-    .highlight .go { color: #000000; font-style: italic } /* Generic.Output */
-    .highlight .gp { color: #8f5902 } /* Generic.Prompt */
-    .highlight .gs { color: #000000; font-weight: bold } /* Generic.Strong */
-    .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
-    .highlight .gt { color: #a40000; font-weight: bold } /* Generic.Traceback */
-    .highlight .kc { color: #204a87; font-weight: bold } /* Keyword.Constant */
-    .highlight .kd { color: #204a87; font-weight: bold } /* Keyword.Declaration */
-    .highlight .kn { color: #204a87; font-weight: bold } /* Keyword.Namespace */
-    .highlight .kp { color: #204a87; font-weight: bold } /* Keyword.Pseudo */
-    .highlight .kr { color: #204a87; font-weight: bold } /* Keyword.Reserved */
-    .highlight .kt { color: #204a87; font-weight: bold } /* Keyword.Type */
-    .highlight .ld { color: #000000 } /* Literal.Date */
-    .highlight .m { color: #0000cf; font-weight: bold } /* Literal.Number */
-    .highlight .s { color: #4e9a06 } /* Literal.String */
-    .highlight .na { color: #c4a000 } /* Name.Attribute */
-    .highlight .nb { color: #204a87 } /* Name.Builtin */
-    .highlight .nc { color: #000000 } /* Name.Class */
-    .highlight .no { color: #000000 } /* Name.Constant */
-    .highlight .nd { color: #5c35cc; font-weight: bold } /* Name.Decorator */
-    .highlight .ni { color: #ce5c00 } /* Name.Entity */
-    .highlight .ne { color: #cc0000; font-weight: bold } /* Name.Exception */
-    .highlight .nf { color: #000000 } /* Name.Function */
-    .highlight .nl { color: #f57900 } /* Name.Label */
-    .highlight .nn { color: #000000 } /* Name.Namespace */
-    .highlight .nx { color: #000000 } /* Name.Other */
-    .highlight .py { color: #000000 } /* Name.Property */
-    .highlight .nt { color: #204a87; font-weight: bold } /* Name.Tag */
-    .highlight .nv { color: #000000 } /* Name.Variable */
-    .highlight .ow { color: #204a87; font-weight: bold } /* Operator.Word */
-    .highlight .w { color: #f8f8f8; text-decoration: underline } /* Text.Whitespace */
-    .highlight .mf { color: #0000cf; font-weight: bold } /* Literal.Number.Float */
-    .highlight .mh { color: #0000cf; font-weight: bold } /* Literal.Number.Hex */
-    .highlight .mi { color: #0000cf; font-weight: bold } /* Literal.Number.Integer */
-    .highlight .mo { color: #0000cf; font-weight: bold } /* Literal.Number.Oct */
-    .highlight .sb { color: #4e9a06 } /* Literal.String.Backtick */
-    .highlight .sc { color: #4e9a06 } /* Literal.String.Char */
-    .highlight .sd { color: #8f5902; font-style: italic } /* Literal.String.Doc */
-    .highlight .s2 { color: #4e9a06 } /* Literal.String.Double */
-    .highlight .se { color: #4e9a06 } /* Literal.String.Escape */
-    .highlight .sh { color: #4e9a06 } /* Literal.String.Heredoc */
-    .highlight .si { color: #4e9a06 } /* Literal.String.Interpol */
-    .highlight .sx { color: #4e9a06 } /* Literal.String.Other */
-    .highlight .sr { color: #4e9a06 } /* Literal.String.Regex */
-    .highlight .s1 { color: #4e9a06 } /* Literal.String.Single */
-    .highlight .ss { color: #4e9a06 } /* Literal.String.Symbol */
-    .highlight .bp { color: #3465a4 } /* Name.Builtin.Pseudo */
-    .highlight .vc { color: #000000 } /* Name.Variable.Class */
-    .highlight .vg { color: #000000 } /* Name.Variable.Global */
-    .highlight .vi { color: #000000 } /* Name.Variable.Instance */
-    .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
+    background: $bg-alt; }
+    .highlight .hll { background-color: #2a2a2a }
+    .highlight .c { color: #7f8c98; font-style: italic } /* Comment */
+    .highlight .err { color: #ff6b6b } /* Error */
+    .highlight .g { color: #e6e6e6 } /* Generic */
+    .highlight .k { color: #c678dd; font-weight: bold } /* Keyword */
+    .highlight .l { color: #d19a66 } /* Literal */
+    .highlight .n { color: #e6e6e6 } /* Name */
+    .highlight .o { color: #56b6c2; font-weight: bold } /* Operator */
+    .highlight .x { color: #e6e6e6 } /* Other */
+    .highlight .p { color: #e6e6e6; font-weight: bold } /* Punctuation */
+    .highlight .cm { color: #7f8c98; font-style: italic } /* Comment.Multiline */
+    .highlight .cp { color: #7f8c98; font-style: italic } /* Comment.Preproc */
+    .highlight .c1 { color: #7f8c98; font-style: italic } /* Comment.Single */
+    .highlight .cs { color: #7f8c98; font-style: italic } /* Comment.Special */
+    .highlight .gd { color: #ff6b6b } /* Generic.Deleted */
+    .highlight .ge { color: #e6e6e6; font-style: italic } /* Generic.Emph */
+    .highlight .gr { color: #ff6b6b } /* Generic.Error */
+    .highlight .gh { color: #61afef; font-weight: bold } /* Generic.Heading */
+    .highlight .gi { color: #98c379 } /* Generic.Inserted */
+    .highlight .go { color: #8a9199; font-style: italic } /* Generic.Output */
+    .highlight .gp { color: #e5c07b } /* Generic.Prompt */
+    .highlight .gs { color: #e6e6e6; font-weight: bold } /* Generic.Strong */
+    .highlight .gu { color: #c678dd; font-weight: bold } /* Generic.Subheading */
+    .highlight .gt { color: #ff6b6b; font-weight: bold } /* Generic.Traceback */
+    .highlight .kc { color: #c678dd; font-weight: bold } /* Keyword.Constant */
+    .highlight .kd { color: #c678dd; font-weight: bold } /* Keyword.Declaration */
+    .highlight .kn { color: #c678dd; font-weight: bold } /* Keyword.Namespace */
+    .highlight .kp { color: #c678dd; font-weight: bold } /* Keyword.Pseudo */
+    .highlight .kr { color: #c678dd; font-weight: bold } /* Keyword.Reserved */
+    .highlight .kt { color: #c678dd; font-weight: bold } /* Keyword.Type */
+    .highlight .ld { color: #98c379 } /* Literal.Date */
+    .highlight .m { color: #d19a66; font-weight: bold } /* Literal.Number */
+    .highlight .s { color: #98c379 } /* Literal.String */
+    .highlight .na { color: #e5c07b } /* Name.Attribute */
+    .highlight .nb { color: #61afef } /* Name.Builtin */
+    .highlight .nc { color: #e5c07b } /* Name.Class */
+    .highlight .no { color: #d19a66 } /* Name.Constant */
+    .highlight .nd { color: #c678dd; font-weight: bold } /* Name.Decorator */
+    .highlight .ni { color: #e5c07b } /* Name.Entity */
+    .highlight .ne { color: #ff6b6b; font-weight: bold } /* Name.Exception */
+    .highlight .nf { color: #61afef } /* Name.Function */
+    .highlight .nl { color: #e5c07b } /* Name.Label */
+    .highlight .nn { color: #e5c07b } /* Name.Namespace */
+    .highlight .nx { color: #e6e6e6 } /* Name.Other */
+    .highlight .py { color: #e6e6e6 } /* Name.Property */
+    .highlight .nt { color: #e06c75; font-weight: bold } /* Name.Tag */
+    .highlight .nv { color: #e6e6e6 } /* Name.Variable */
+    .highlight .ow { color: #56b6c2; font-weight: bold } /* Operator.Word */
+    .highlight .w { color: #7f8c98; text-decoration: underline } /* Text.Whitespace */
+    .highlight .mf { color: #d19a66; font-weight: bold } /* Literal.Number.Float */
+    .highlight .mh { color: #d19a66; font-weight: bold } /* Literal.Number.Hex */
+    .highlight .mi { color: #d19a66; font-weight: bold } /* Literal.Number.Integer */
+    .highlight .mo { color: #d19a66; font-weight: bold } /* Literal.Number.Oct */
+    .highlight .sb { color: #98c379 } /* Literal.String.Backtick */
+    .highlight .sc { color: #98c379 } /* Literal.String.Char */
+    .highlight .sd { color: #7f8c98; font-style: italic } /* Literal.String.Doc */
+    .highlight .s2 { color: #98c379 } /* Literal.String.Double */
+    .highlight .se { color: #98c379 } /* Literal.String.Escape */
+    .highlight .sh { color: #98c379 } /* Literal.String.Heredoc */
+    .highlight .si { color: #98c379 } /* Literal.String.Interpol */
+    .highlight .sx { color: #98c379 } /* Literal.String.Other */
+    .highlight .sr { color: #98c379 } /* Literal.String.Regex */
+    .highlight .s1 { color: #98c379 } /* Literal.String.Single */
+    .highlight .ss { color: #98c379 } /* Literal.String.Symbol */
+    .highlight .bp { color: #61afef } /* Name.Builtin.Pseudo */
+    .highlight .vc { color: #e6e6e6 } /* Name.Variable.Class */
+    .highlight .vg { color: #e6e6e6 } /* Name.Variable.Global */
+    .highlight .vi { color: #e6e6e6 } /* Name.Variable.Instance */
+    .highlight .il { color: #d19a66; font-weight: bold } /* Literal.Number.Integer.Long */
+
+/*--------------------------------------------------------------
+	7.0 Dark theme overrides (matches Salta Game Devs palette)
+--------------------------------------------------------------*/
+.text-muted {
+  color: $text-sub;
+}
+
+.breadcrumb {
+  background-color: transparent;
+  color: $text-sub;
+  > li + li:before {
+    color: #555;
+  }
+  a {
+    color: $accent;
+    &:hover {
+      color: $accent-hover;
+    }
+  }
+  > .active {
+    color: #ffffff;
+  }
+}
+
+.pagination {
+  > li > a,
+  > li > span {
+    background-color: $bg-card;
+    border-color: $border;
+    color: $text-sub;
+    &:hover,
+    &:focus {
+      background-color: $bg-alt;
+      border-color: $accent;
+      color: #ffffff;
+    }
+  }
+  > .active > a,
+  > .active > span,
+  > .active > a:hover,
+  > .active > span:hover,
+  > .active > a:focus,
+  > .active > span:focus {
+    background-color: $accent;
+    border-color: $accent;
+    color: #ffffff;
+  }
+  > .disabled > span,
+  > .disabled > span:hover,
+  > .disabled > span:focus,
+  > .disabled > a,
+  > .disabled > a:hover,
+  > .disabled > a:focus {
+    background-color: $bg-card;
+    border-color: $border;
+    color: #555;
+  }
+}
+
+blockquote {
+  background-color: $bg-alt;
+  border-left: 5px solid $accent;
+  color: $text-body;
+  footer {
+    color: $text-sub;
+  }
+}
+
+hr {
+  border-top-color: $border;
+}
+
+.well {
+  background-color: $bg-alt;
+  border-color: $border;
+}
+
+label {
+  color: #ffffff;
+}
+
+table {
+  color: $text-body;
+  th,
+  td {
+    border-color: $border;
+  }
+}
+
+input[type="password"],
+input[type="text"],
+input[type="email"],
+input[type="url"],
+textarea {
+  background-color: $bg-card;
+  border: 1px solid $border;
+  color: #ffffff;
+  &:focus {
+    border-color: $accent;
+  }
+}
+
+form button[type="submit"] {
+  background-color: $accent;
+  border: 1px solid $accent;
+  color: #ffffff;
+  padding: 12px 35px;
+  border-radius: 4px;
+  font-weight: 600;
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
