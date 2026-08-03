@@ -195,6 +195,14 @@ button.btn, input.btn {
     i {
       padding-right: 0.5em;
     }
+    .hero-button__favicon {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      margin-right: 0.5em;
+      vertical-align: middle;
+      border-radius: 50%;
+    }
     .hero-buttons__row {
       display: flex;
       flex-wrap: wrap;
