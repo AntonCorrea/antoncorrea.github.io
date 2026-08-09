@@ -1,0 +1,132 @@
+{% include header.html %}
+
+  <link rel="stylesheet" href="{{ "/css/salta-game-devs.css" | prepend: site.baseurl }}?v={{ site.time | date: "%Y%m%d%H%M" }}">
+
+  <article>
+    <div class="breadcrumb">
+      <a href="{{ site.baseurl }}/">Home</a> /
+      <a href="{{ site.baseurl }}/salta-game-devs/">Salta Game Devs</a> /
+      <span>{{ page.title }}</span>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+          <h1 class="text-center">{{ page.title }}</h1>
+
+          <p class="text-center" style="color: #6c757d;">
+            {% if page.author %}<strong>{{ page.author }}</strong>{% endif %}
+            {% if page.context %} &middot; {{ page.context }}{% endif %}
+          </p>
+
+          {% assign media_items = "" | split: "," %}
+          {% if page.pdf %}
+            {% capture p %}{{ page.pdf | prepend: site.baseurl }}|pdf{% endcapture %}
+            {% assign media_items = media_items | push: p %}
+          {% endif %}
+          {% if page.video %}
+            {% capture v %}{{ page.video }}|video{% endcapture %}
+            {% assign media_items = media_items | push: v %}
+          {% endif %}
+          {% for image in page.images %}
+            {% capture i %}{{ image | prepend: site.baseurl }}|image{% endcapture %}
+            {% assign media_items = media_items | push: i %}
+          {% endfor %}
+
+          {% if media_items.size > 0 %}
+          <div class="sgd-gallery" id="sgd-gallery">
+            <div class="sgd-gallery__main{% if page.image_margin_top %} sgd-gallery__main--pad-top{% endif %}">
+              {% assign first = media_items[0] | split: "|" %}
+              {% if first[1] == "pdf" %}
+              <div class="sgd-gallery__pdf">
+                <iframe src="{{ first[0] }}" title="{{ page.title }} PDF" loading="lazy"></iframe>
+              </div>
+              {% elsif first[1] == "video" %}
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ first[0] }}?controls=0&rel=0&modestbranding=1&playsinline=1" title="{{ page.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              {% else %}
+              <img src="{{ first[0] }}" alt="{{ page.title }} screenshot" loading="lazy">
+              {% endif %}
+            </div>
+
+            {% if media_items.size > 1 %}
+            <div class="sgd-gallery__thumbs">
+              {% for item in media_items %}
+                {% assign parts = item | split: "|" %}
+                <button type="button" class="sgd-gallery__thumb{% if forloop.first %} is-active{% endif %}" data-type="{{ parts[1] }}" data-src="{{ parts[0] }}">
+                  {% if parts[1] == "video" %}
+                  <span class="sgd-gallery__play"><i class="fa-solid fa-play"></i></span>
+                  <img src="https://img.youtube.com/vi/{{ parts[0] }}/hqdefault.jpg" alt="{{ page.title }} video thumbnail" loading="lazy">
+                  {% elsif parts[1] == "pdf" %}
+                  <span class="sgd-gallery__play"><i class="fa-solid fa-file-pdf"></i></span>
+                  {% if page.images %}
+                  <img src="{{ page.images[0] | prepend: site.baseurl }}" alt="{{ page.title }} PDF thumbnail" loading="lazy">
+                  {% else %}
+                  <img src="{{ first[0] }}" alt="{{ page.title }} PDF thumbnail" loading="lazy">
+                  {% endif %}
+                  {% else %}
+                  <img src="{{ parts[0] }}" alt="{{ page.title }} screenshot {{ forloop.index }}" loading="lazy">
+                  {% endif %}
+                </button>
+              {% endfor %}
+            </div>
+            {% endif %}
+          </div>
+
+          <script>
+            (function () {
+              var gallery = document.getElementById('sgd-gallery');
+              if (!gallery) return;
+              var main = gallery.querySelector('.sgd-gallery__main');
+              var thumbs = gallery.querySelectorAll('.sgd-gallery__thumb');
+              var pageTitle = {{ page.title | jsonify }};
+              thumbs.forEach(function (thumb) {
+                thumb.addEventListener('click', function () {
+                  thumbs.forEach(function (t) { t.classList.remove('is-active'); });
+                  thumb.classList.add('is-active');
+                  var type = thumb.getAttribute('data-type');
+                  var src = thumb.getAttribute('data-src');
+                  if (type === 'video') {
+                    main.innerHTML = '<div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item" src="https://www.youtube.com/embed/' + src + '?controls=0&rel=0&modestbranding=1&playsinline=1" title="' + pageTitle + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>';
+                  } else if (type === 'pdf') {
+                    main.innerHTML = '<div class="sgd-gallery__pdf"><iframe src="' + src + '" title="' + pageTitle + '" loading="lazy"></iframe></div>';
+                  } else {
+                    main.innerHTML = '<img src="' + src + '" alt="' + pageTitle + '" loading="lazy">';
+                  }
+                });
+              });
+            })();
+          </script>
+          {% elsif page.image %}
+          <p style="text-align: center; margin-bottom: 20px;">
+            <img src="{{ page.image | prepend: site.baseurl }}" alt="{{ page.title }} screenshot" style="max-width: 100%; height: auto; border-radius: 12px;">
+          </p>
+          {% endif %}
+
+          <p class="lead">{{ page.description }}</p>
+
+          {{ content }}
+
+          {% if page.platform or page.tools %}
+          <p>
+            {% if page.platform %}<strong>Platform:</strong> {{ page.platform }}{% endif %}
+            {% if page.platform and page.tools %}<br>{% endif %}
+            {% if page.tools %}<strong>Built with:</strong> {{ page.tools }}{% endif %}
+          </p>
+          {% endif %}
+
+          {% if page.link %}
+          <div style="text-align: center; margin: 24px 0;">
+            <a href="{{ page.link }}" class="btn btn-default btn-lg" target="_blank" rel="noopener">
+              <i class="fa-solid fa-globe"></i> {{ page.link_text | default: "Play / Watch" }}
+            </a>
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+{% include footer.html %}

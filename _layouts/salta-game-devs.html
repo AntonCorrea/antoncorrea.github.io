@@ -95,53 +95,41 @@
   <section class="works" id="works">
     <div class="container">
       <div class="section-head">
-        <span class="overline">Portfolio</span>
+        <span class="overline">Showcase</span>
         <h2 class="section-title">Our <span class="accent">Works</span></h2>
-        <p class="section-subtitle">A selection of games, apps and interactive experiences I've built as a developer and collaborator.</p>
+        <p class="section-subtitle">A selection of games, apps and interactive experiences we've built as developers and collaborators.</p>
       </div>
-      <div class="works__grid">
-
-        <a class="work-card" href="/portfolio/dieguitas/">
-          <div class="work-card__media"><img src="{{ "/img/posts/Diaguita/diaguitaScreenshoot.png" | prepend: site.baseurl }}" alt="Diaguitas screenshot"></div>
-          <div class="work-card__body">
-            <div class="work-card__row"><h3>Diaguitas</h3><span class="work-card__year">2019</span></div>
-            <p>An action game based on local cultural folklore.</p>
-          </div>
-        </a>
-
-        <a class="work-card" href="/portfolio/snax/">
-          <div class="work-card__media"><img src="{{ "/img/posts/Snax/snaxScreenshot.png" | prepend: site.baseurl }}" alt="Snax Casual Games screenshot"></div>
-          <div class="work-card__body">
-            <div class="work-card__row"><h3>Snax Casual Games</h3><span class="work-card__year">2020</span></div>
-            <p>A collection of casual games for mobile developed in Godot.</p>
-          </div>
-        </a>
-
-        <a class="work-card" href="/portfolio/vrdemos/">
-          <div class="work-card__media"><img src="{{ "/img/posts/VR/vrScreenshot.png" | prepend: site.baseurl }}" alt="VR Demos screenshot"></div>
-          <div class="work-card__body">
-            <div class="work-card__row"><h3>VR Demos</h3><span class="work-card__year">2022</span></div>
-            <p>Demo of virtual reality experiences.</p>
-          </div>
-        </a>
-
-        <div class="work-card">
-          <div class="work-card__media"><img src="{{ "/img/posts/Jake/jakeScreenshot.png" | prepend: site.baseurl }}" alt="Jake's Jingle Quest screenshot"></div>
-          <div class="work-card__body">
-            <div class="work-card__row"><h3>Jake's Jingle Quest</h3><span class="work-card__year">2024</span></div>
-            <p>Web browser platform game featuring Jake from StateFarm.</p>
+      {% assign platforms = "PC,Mobile,Web,VR/AR,UX/UI" | split: "," %}
+      {% for platform in platforms %}
+        {% assign group = site.sgd_works | where: "platform", platform %}
+        {% if group.size > 0 %}
+        <div class="works__group">
+          <h3 class="works__group-title">{{ platform }}</h3>
+          <div class="works__grid">
+          {% for item in group %}
+          <a class="work-card" href="{{ item.url }}">
+            <div class="work-card__media">
+              {% if item.images %}
+              <img src="{{ item.images[0] | prepend: site.baseurl }}" alt="{{ item.title }} screenshot">
+              {% elsif item.image %}
+              <img src="{{ item.image | prepend: site.baseurl }}" alt="{{ item.title }} screenshot">
+              {% elsif item.video %}
+              <div class="work-card__video">
+                <iframe src="https://www.youtube.com/embed/{{ item.video }}?controls=0&rel=0&modestbranding=1&playsinline=1" title="{{ item.title }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+              </div>
+              {% endif %}
+              <span class="work-card__badge">{{ item.platform }}</span>
+            </div>
+            <div class="work-card__body">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </a>
+          {% endfor %}
           </div>
         </div>
-
-        <div class="work-card">
-          <div class="work-card__media"><img src="{{ "/img/posts/Cotton/cottonScreenshot.png" | prepend: site.baseurl }}" alt="Cotton Mindful Moment screenshot"></div>
-          <div class="work-card__body">
-            <div class="work-card__row"><h3>Cotton Mindful Moment</h3><span class="work-card__year">2024</span></div>
-            <p>A relaxing coloring app.</p>
-          </div>
-        </div>
-
-      </div>
+        {% endif %}
+      {% endfor %}
     </div>
   </section>
 
@@ -152,7 +140,7 @@
       <div class="talk__inner">
         <span class="overline">Contact</span>
         <h2 class="section-title">Let's <span class="accent">Talk</span></h2>
-        <p class="section-subtitle">Have a project in mind? I'm always happy to talk about your next game, art production or outsourcing needs.</p>
+        <p class="section-subtitle">Have a project in mind? We're always happy to talk about your next game, art production or outsourcing needs.</p>
         <form class="talk__form" action="mailto:just.anton.rock@gmail.com" method="post" enctype="text/plain">
           <input class="talk__input" type="text" name="name" placeholder="Your Name" required>
           <input class="talk__input" type="email" name="email" placeholder="Your Email" required>
