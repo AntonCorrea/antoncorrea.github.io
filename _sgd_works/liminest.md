@@ -1,14 +1,19 @@
 ---
 layout: sgd_work
 title: Liminest
-description: An AI companion app with side activities, safe for work.
+description: A relaxing 3D life simulator inhabited by an AI agent that thinks and acts naturally.
 video: USpgREcD1PU
 images:
+  - /img/posts/liminest/thumb.jpg
   - /img/posts/liminest/liminest.png
-author: Diego Puzio
+  - /img/posts/liminest/2026-08-09 (14).png
+  - /img/posts/liminest/2026-08-09 (16).png
+  - /img/posts/liminest/2026-08-09 (23).png
+  - /img/posts/liminest/2026-08-09 (39).png
+author: Bayek
 context: "Personal project"
 platform: PC
 tools: Godot
 ---
 
-Liminest is a safe-for-work AI companion app made in Godot for PC. Beyond casual conversation, it offers a set of side activities that keep the experience engaging and playful without crossing into NSFW territory.
+A relaxing 3D life simulator built around a custom AI agent. It perceives its environment, keeps routines, moves, makes decisions, and interacts through chat and voice — designed for relaxation, wellbeing, and personal growth, not endless screen time.

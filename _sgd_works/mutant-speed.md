@@ -3,7 +3,7 @@ layout: sgd_work
 title: Mutant Speed
 description: Protect the last human shelter from endless waves of mutants.
 images:
-  - /img/posts/MutantSpeed/cover.png
+  - /img/posts/MutantSpeed/front.png
   - /img/posts/MutantSpeed/shot1.png
   - /img/posts/MutantSpeed/shot2.png
   - /img/posts/MutantSpeed/shot3.png
