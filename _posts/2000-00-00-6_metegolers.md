@@ -5,6 +5,7 @@ title: 'Metegolers'
 date: 2000-01-01 00:00:05
 date_dev: 2023
 categories: development
+hidden: true
 tags: Unity Multiplayer SinglePlayer Collaborator Android iOS 
 featured_image: '/img/posts/Metegolers/metegolersScreenshot.png'
 project_link: metegolers
