@@ -2,7 +2,7 @@
 layout: sgd_work
 title: Liminest
 description: A relaxing 3D life simulator inhabited by an AI agent that thinks and acts naturally.
-video: USpgREcD1PU
+video: FbM9xMzMp-Y
 images:
   - /img/posts/liminest/thumb.jpg
   - /img/posts/liminest/liminest.png
@@ -17,3 +17,5 @@ tools: Godot
 ---
 
 A relaxing 3D life simulator built around a custom AI agent. It perceives its environment, keeps routines, moves, makes decisions, and interacts through chat and voice — designed for relaxation, wellbeing, and personal growth, not endless screen time.
+
+Contact: liminestdev@gmail.com
